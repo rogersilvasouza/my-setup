@@ -123,3 +123,6 @@ killall -HUP Finder;
 echo "Escondendo o Icone do Spotlight"
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 killall SystemUIServer
+
+echo "Instalando o Oh My zsh"
+curl -L http://install.ohmyz.sh | sh
