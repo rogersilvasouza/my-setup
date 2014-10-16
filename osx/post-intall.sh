@@ -205,9 +205,6 @@ sudo defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool 
 echo "Habilitar Dashboard -Dev Mode- (permite manter widgets na Ã¡rea de trabalho)"
 sudo defaults write com.apple.dashboard devmode -bool true
 
-echo "Redefinir Launchpad"
-[ -e ~/Library/Application\ Support/Dock/*.db ] && rm ~/Library/Application\ Support/Dock/*.db
-
 echo "Mostrar a Pasta ~/Library"
 sudo chflags nohidden ~/Library
 
