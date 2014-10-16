@@ -57,7 +57,7 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 echo "# Save to disk (not to iCloud) by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-echo "# Remove duplicates in the “Open With” menu (also see `lscleanup` alias)"
+#echo "# Remove duplicates in the “Open With” menu (also see `lscleanup` alias)"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 echo "# Reveal IP address, hostname, OS version, etc. when clicking the clock # in the login window"
