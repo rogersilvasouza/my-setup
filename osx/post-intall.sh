@@ -1,15 +1,8 @@
 #!/usr/bin/env sh
 
 ##
-# Este Ã© um script com dicas Ãºteis provenientes vindas de:
-#   https://github.com/mathiasbynens/dotfiles/blob/master/.osx
-#
-# Esse Script Foi testado por mim em um macbook 2009 later, com OSX Mountain Lion
-#
-# Para executar ele vÃ¡ ao terminal e execute:
 #   curl -sL https://gist.github.com/rogersilvasouza/3884717/raw/e728528194146f5c8508b41d4b69f707b1b6c91a/hack.sh | sh
 #
-
 
 echo "Listar Arquivos sempre em listview"
 sudo defaults write com.apple.Finder FXPreferredViewStyle Nlsv
