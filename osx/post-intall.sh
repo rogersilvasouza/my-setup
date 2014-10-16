@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 ##
-#   curl -sL https://gist.github.com/rogersilvasouza/3884717/raw/e728528194146f5c8508b41d4b69f707b1b6c91a/hack.sh | sh
+#   curl -sL https://github.com/rogersilvasouza/my-setup/blob/master/osx/post-intall.sh | sh
 #
 #
 # 	Original https://github.com/mathiasbynens/dotfiles/blob/master/.osx
