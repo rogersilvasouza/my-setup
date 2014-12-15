@@ -216,7 +216,7 @@ defaults write com.apple.Finder AppleShowAllFiles YES;
 killall -HUP Finder;
 
 echo "Escondendo o Icone do Spotlight"
-sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 killall SystemUIServer
 
 echo "Instalando o Oh My zsh"
