@@ -6,6 +6,8 @@
 #
 # 	Original Forked  https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 #
+#   Works in 10.10.2
+#
 #   Made with love <3
 
 # Ask for the administrator password upfront
