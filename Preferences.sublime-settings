@@ -18,7 +18,8 @@
 		"*.jpg",
 		"*.gif",
 		"*.vsd",
-		"._*"
+		"._*",
+		".com.apple.timemachine.supported"
 	],
 	"folder_exclude_patterns":
 	[
