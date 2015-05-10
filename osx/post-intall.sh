@@ -230,21 +230,3 @@ killall SystemUIServer
 
 echo "Instalando o Oh My zsh"
 # curl -L http://install.ohmyz.sh | sh
-
-echo "Ativando TRIM para o SSD"
-# backup patched file
-sudo cp /System/Library/Extensions/IOAHCIFamily.kext/Contents/PlugIns/IOAHCIBlockStorage.kext/Contents/MacOS/IOAHCIBlockStorage /System/Library/Extensions/IOAHCIFamily.kext/Contents/PlugIns/IOAHCIBlockStorage.kext/Contents/MacOS/IOAHCIBlockStorage.original
- 
-# Important: Add "kext-dev-mode=1" as Kernel Arguments or the computer won't boot.
-sudo nvram boot-args="kext-dev-mode=1"
-sudo shutdown -r now
- 
-# looks for "Apple" string in HD kext, changes it to a wildcard match for anything
-sudo perl -pi -e 's|\x00\x41\x50\x50\x4c\x45\x20\x53\x53\x44\x00|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00|' /System/Library/Extensions/IOAHCIFamily.kext/Contents/PlugIns/IOAHCIBlockStorage.kext/Contents/MacOS/IOAHCIBlockStorage
- 
-# rebuild kext cache manually (could take a while)
-sudo touch /System/Library/Extensions
-sudo kextcache -m /System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext /System/Library/Extensions
- 
-echo "Reiniciando" 
-sudo shutdown -r now
