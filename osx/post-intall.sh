@@ -230,3 +230,6 @@ killall SystemUIServer
 
 echo "Instalando o Oh My zsh"
 sudo curl -L http://install.ohmyz.sh | sh
+
+echo "Reindex Apps"
+sudo mdutil -E /
