@@ -66,11 +66,11 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 echo "# Remove duplicates in the Open With menu (also see lscleanup alias)"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
-echo "# Reveal IP address, hostname, OS version, etc. when clicking the clock # in the login window"
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+# echo "# Reveal IP address, hostname, OS version, etc. when clicking the clock # in the login window"
+# sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 echo "# Restart automatically if the computer freezes"
-sudo systemsetup -setrestartfreeze on
+sudo systemsetup -setrestartfreeze off
 
 echo "# Automatically quit printer app once the print jobs complete"
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
@@ -87,8 +87,8 @@ defaults write com.apple.screencapture type -string "jpg"
 echo "# Disable shadow in screenshots"
 defaults write com.apple.screencapture disable-shadow -bool true
 
-echo "# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons"
-defaults write com.apple.finder QuitMenuItem -bool true
+# echo "# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons"
+# defaults write com.apple.finder QuitMenuItem -bool true
 
 echo "Listar Arquivos sempre em listview"
 sudo defaults write com.apple.Finder FXPreferredViewStyle Nlsv
@@ -121,34 +121,34 @@ echo "# Sort Activity Monitor results by CPU usage"
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
-echo "Sincronizar Hora com NTP"
-sudo ntpdate -u time.apple.com
+# echo "Sincronizar Hora com NTP"
+# sudo ntpdate -u time.apple.com
 
-echo "Acesso Total ao Teclado (Ex:Ativar a tecla Tab, em caixas de diÃ¡logo modais)"
+echo "Acesso Total ao Teclado (Ex:Ativar a tecla Tab, em caixas de diálogo modais)"
 sudo defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-echo "Habilitar subpixel e renderizaÃ§Ã£o de fontes em LCDs nÃ£o-Apple"
+echo "Habilitar subpixel e renderização de fontes em LCDs não-Apple"
 sudo defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 echo "Habilitar o Dock 2D"
 sudo defaults write com.apple.dock no-glass -bool true
 
-echo "AplicaÃ§Ãµes minizadas/escondidas ficam icones transparentes"
+echo "Aplicações minizadas/escondidas ficam icones transparentes"
 sudo defaults write com.apple.dock showhidden -bool true
 
-echo "Desativar transparÃªncia na barra de menu"
+echo "Desativar transparência na barra de menu"
 sudo defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 echo "Sempre mostrar as barras de rolagem"
 sudo defaults write NSGlobalDomain AppleShowScrollBars -string "Auto"
 
-echo "Desativar animaÃ§Ãµes de janelas e pastas"
+echo "Desativar animações de janelas e pastas"
 sudo defaults write com.apple.finder DisableAllAnimations -bool true
 
-echo "Mostrar todas as extensÃµes de arquivo no Finder"
+echo "Mostrar todas as extensções de arquivo no Finder"
 sudo defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-echo "Use o diretÃ³rio atual como escopo de pesquisa padrÃ£o no Finder"
+echo "Use o diretório atual como escopo de pesquisa padrão no Finder"
 sudo defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 echo "Mostrar a barra do caminho no Finder"
@@ -163,18 +163,18 @@ sudo defaults write com.apple.screencapture disable-shadow -bool true
 echo "Mostrar luzes indicadoras para os aplicativos abertos no Dock"
 sudo defaults write com.apple.dock show-process-indicators -bool true
 
-echo "Abrir aplicativos sem animaÃ§Ã£o a partir do Dock"
+echo "Abrir aplicativos sem animação a partir do Dock"
 sudo defaults write com.apple.dock launchanim -bool false
 
-echo "Desativar animaÃ§Ãµes ao abrir e fechar janelas"
+echo "Desativar animações ao abrir e fechar janelas"
 sudo defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
-echo "Desabilitar a verificaÃ§Ã£o de imagem de disco"
+echo "Desabilitar a verificação de imagem de disco"
 sudo defaults write com.apple.frameworks.diskimages skip-verify -bool true
 sudo defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 sudo defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-echo "Automaticamente abrir uma nova janela do Finder quando um volume estÃ¡ montado"
+echo "Automaticamente abrir uma nova janela do Finder quando um volume estão montado"
 sudo defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 sudo defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 sudo defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
@@ -182,16 +182,16 @@ sudo defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 echo "Evite criar .DS_Store Volumes de rede"
 sudo defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-echo "Desativar o aviso quando mudar uma extensÃ£o de arquivo"
+echo "Desativar o aviso quando mudar uma extensão de arquivo"
 sudo defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-echo "Habilitar snap-to-grid para Ã­cones do desktop"
+echo "Habilitar snap-to-grid para ícones do desktop"
 sudo /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 echo "Habilitar o aviso antes de esvaziar a Lixeira"
-sudo defaults write com.apple.finder WarnOnEmptyTrash -bool true
+sudo defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-echo "Exigir senha imediatamente apÃ³s o Sleep ou Screen Saver"
+echo "Exigir senha imediatamente após o Sleep ou Screen Saver"
 sudo defaults write com.apple.screensaver askForPassword -int 1
 sudo defaults write com.apple.screensaver askForPasswordDelay -int 0
 
@@ -211,8 +211,8 @@ echo "Desative o reabrir as janelas quando o desligar o Mac"
 sudo defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 sudo defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 
-echo "Habilitar Dashboard -Dev Mode- (permite manter widgets na Ã¡rea de trabalho)"
-sudo defaults write com.apple.dashboard devmode -bool true
+# echo "Habilitar Dashboard -Dev Mode- (permite manter widgets na Ã¡rea de trabalho)"
+# sudo defaults write com.apple.dashboard devmode -bool true
 
 echo "Mostrar a Pasta ~/Library"
 sudo chflags nohidden ~/Library
@@ -229,4 +229,4 @@ echo "Escondendo o Icone do Spotlight"
 killall SystemUIServer
 
 echo "Instalando o Oh My zsh"
-# curl -L http://install.ohmyz.sh | sh
+sudo curl -L http://install.ohmyz.sh | sh
