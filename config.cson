@@ -1,0 +1,50 @@
+"*":
+  "atom-beautify":
+    _analyticsUserId: "6792ad0c-fe16-4fc6-9458-39627c5259e3"
+  core:
+    ignoredNames: [
+      ".hg"
+      ".CVS"
+      ".DS_Store"
+      ".png"
+      ".psd"
+      ".jpg"
+      ".gif"
+      ".vsd"
+      "._*"
+      ".com.apple.timemachine.supported"
+      "._.DS_Store"
+      "backup"
+      "database"
+      "resource"
+    ]
+    projectHome: "/Users/rogersouza/Sites"
+    themes: [
+      "dracula-theme"
+    ]
+  editor:
+    fontFamily: "Source Code Pro"
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "b9ddabab-e53d-cbeb-1ad2-8e96bd41b1f2"
+  metrics:
+    userId: "c631e13cc9f1595f83dcedf3d4903f25a80c91b2"
+  "release-notes":
+    viewedVersion: "0.95.0"
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  wakatime:
+    apikey: "7897f536-a32e-4770-bba2-3064cacd08fc"
+    ignore: [
+      "^/var/"
+      "^/tmp/"
+      "^/private/"
+      "COMMIT_EDITMSG$"
+      "PULLREQ_EDITMSG$"
+      "MERGE_MSG$"
+    ]
+  welcome:
+    showOnStartup: false
