@@ -19,11 +19,7 @@
       "resource"
     ]
     projectHome: "/Users/rogersouza/Sites"
-    themes: [
-      "dracula-theme"
-    ]
   editor:
-    fontFamily: "Source Code Pro"
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
