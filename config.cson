@@ -19,7 +19,13 @@
       "resource"
     ]
     projectHome: "/Users/rogersouza/Sites"
+    themes: [
+      "one-dark-ui"
+      "an-old-hope-syntax"
+    ]
   editor:
+    autoIndentOnPaste: false
+    fontFamily: "Source Code Pro"
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
@@ -27,6 +33,7 @@
     userId: "b9ddabab-e53d-cbeb-1ad2-8e96bd41b1f2"
   metrics:
     userId: "c631e13cc9f1595f83dcedf3d4903f25a80c91b2"
+  pigments: {}
   "release-notes":
     viewedVersion: "0.95.0"
   "tree-view":
