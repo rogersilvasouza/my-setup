@@ -2,7 +2,6 @@
 	"auto_complete_commit_on_tab": true,
 	"auto_reload_changed": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/SublimeLinter/Flatland Monokai (SL).tmTheme",
 	"detect_indentation": true,
 	"drag_text": false,
 	"draw_centered": false,
@@ -33,7 +32,6 @@
 		"*.svn",
 		"._*"
 	],
-	"font_face": "Source Code Pro Semibold",
 	"font_size": 12,
 	"highlight_active_indent_guide": true,
 	"highlight_line": true,
