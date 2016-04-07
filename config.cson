@@ -31,8 +31,14 @@
     showInvisibles: true
   "exception-reporting":
     userId: "b9ddabab-e53d-cbeb-1ad2-8e96bd41b1f2"
+  linter:
+    errorPanelHeight: 75
   metrics:
     userId: "c631e13cc9f1595f83dcedf3d4903f25a80c91b2"
+  minimap:
+    plugins:
+      pigments: true
+      pigmentsDecorationsZIndex: 0
   pigments: {}
   "release-notes":
     viewedVersion: "0.95.0"
