@@ -1,0 +1,16 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+folders:
+    - map: ~/Sites
+      to: /home/vagrant/Code
+
+sites:
+    - map: ex11.app
+      to: /home/vagrant/Code/ex11/public
+
+databases:
+    - homestead
