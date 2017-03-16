@@ -16,10 +16,6 @@
 printf '\e[1;31mOS X Password (Privileges of Admistrador)\e[0m\n'
 sudo -v
 
-# Brew version https://brew.sh/
-printf '\e[1;31mInstall Brew (Package Management)\e[0m\n'
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 printf '\e[1;31mDisable the sound effects on boot\e[0m\n'
 sudo nvram SystemAudioVolume=" "
 
@@ -125,42 +121,39 @@ sudo defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool tru
 printf '\e[1;31mDesativar o aviso quando mudar uma extensão de arquivo\e[0m\n'
 sudo defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-echo "Habilitar snap-to-grid para ícones do desktop"
+printf '\e[1;31mHabilitar snap-to-grid para ícones do desktop\e[0m\n'
 sudo /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
-echo "Habilitar o aviso antes de esvaziar a Lixeira"
+printf '\e[1;31mHabilitar o aviso antes de esvaziar a Lixeira\e[0m\n'
 sudo defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-echo "Exigir senha imediatamente após o Sleep ou Screen Saver"
-sudo defaults write com.apple.screensaver askForPassword -int 1
-sudo defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-echo "Desativar cache do Safari para os Top Sites"
+printf '\e[1;31mDesativar cache do Safari para os Top Sites\e[0m\n'
 sudo defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
-echo "Ativar menu de debug do Safari"
+printf '\e[1;31mAtivar menu de debug do Safari\e[0m\n'
 sudo defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
-echo "Adicionar um item de menu de contexto para mostrar o Web Inspector"
-sudo defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-
-echo "Desative o reabrir as janelas quando o desligar o Mac"
+printf '\e[1;31mDesative o reabrir as janelas quando o desligar o Mac\e[0m\n'
 sudo defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 sudo defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 
-echo "Mostrar a Pasta ~/Library"
+printf '\e[1;31mMostrar a Pasta ~/Library\e[0m\n'
 sudo chflags nohidden ~/Library
 
-echo "Mostrar Arquivos Ocultos"
+printf '\e[1;31mMostrar Arquivos Ocultos\e[0m\n'
 defaults write com.apple.Finder AppleShowAllFiles YES;
 killall -HUP Finder;
 
-echo "Escondendo o Icone do Spotlight"
+printf '\e[1;31mEscondendo o Icone do Spotlight\e[0m\n'
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 killall SystemUIServer
 
-echo "Instalando o Oh My zsh"
+printf '\e[1;31mReindex Apps\e[0m\n'
+sudo mdutil -E /
+
+printf '\e[1;31mInstalando o Oh My zsh\e[0m\n'
 sudo curl -L http://install.ohmyz.sh | sh
 
-echo "Reindex Apps"
-sudo mdutil -E /
+# Brew version https://brew.sh/
+printf '\e[1;31mInstall Brew (Package Management)\e[0m\n'
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
