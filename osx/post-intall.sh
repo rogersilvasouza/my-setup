@@ -1,188 +1,128 @@
 #!/usr/bin/env sh
 
 ##
-#   curl -sL https://raw.githubusercontent.com/rogersilvasouza/my-setup/master/osx/post-intall.sh | sh
 #
+#   To install CMD + Space bar > Terminal
+#   curl -sL https://raw.githubusercontent.com/rogersilvasouza/my-setup/master/osx/post-intall.sh | sh
 #
 # 	Original Forked  https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 #
-#   Works in 10.10.2
+#   Works in 10.12.3
 #
-#   Made with love <3
+#   Red Bold     : \e[1;31m
+#   Finish Color :
 
-# Ask for the administrator password upfront
-echo "Senha do administrator"
+# Enter the OS X administrator password
+printf '\e[1;31mOS X Password (Privileges of Admistrador)\e[0m\n'
 sudo -v
 
-# IF a clean OSX installation, space for more and agree for confirm
-# sudo xcodebuild -license
+# Brew version https://brew.sh/
+printf '\e[1;31mInstall Brew (Package Management)\e[0m\n'
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-# Set standby delay to 24 hours (default is 1 hour)
-echo "Set standby delay to 24 hours (default is 1 hour)"
-sudo pmset -a standbydelay 86400
-
-echo "# Disable the sound effects on boot"
+printf '\e[1;31mDisable the sound effects on boot\e[0m\n'
 sudo nvram SystemAudioVolume=" "
 
-echo "# Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons"
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-	defaults write "${domain}" dontAutoLoad -array \
-		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
-		"/System/Library/CoreServices/Menu Extras/User.menu"
-done
-defaults write com.apple.systemuiserver menuExtras -array \
-	"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-	"/System/Library/CoreServices/Menu Extras/Battery.menu" \
-	"/System/Library/CoreServices/Menu Extras/Clock.menu"
-
-echo "# Set highlight color to green"
-defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
-
-echo "# Never go into computer sleep mode"
-sudo systemsetup -setcomputersleep Off > /dev/null
-
-echo "# Check for software updates daily, not just once per week"
+printf '\e[1;31mCheck for software updates daily, not just once per week\e[0m\n'
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
-echo "# Set sidebar icon size to medium"
+printf '\e[1;31mSet sidebar icon size to medium\e[0m\n'
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
-echo "# Expand save panel by default"
+printf '\e[1;31mExpand save panel by default\e[0m\n'
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
-echo "# Expand print panel by default"
+printf '\e[1;31mExpand print panel by default\e[0m\n'
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
-echo "# Save to disk (not to iCloud) by default"
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-
-echo "# Remove duplicates in the Open With menu (also see lscleanup alias)"
+printf '\e[1;31mRemove duplicates in the Open With menu (also see lscleanup alias)\e[0m\n'
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
-# echo "# Reveal IP address, hostname, OS version, etc. when clicking the clock # in the login window"
-# sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-
-echo "# Restart automatically if the computer freezes"
-sudo systemsetup -setrestartfreeze off
-
-echo "# Automatically quit printer app once the print jobs complete"
-defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-
-echo "# Disable the “Are you sure you want to open this application?” dialog"
+printf '\e[1;31mDisable the “Are you sure you want to open this application?” dialog\e[0m\n'
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-echo "# Save screenshots to the Downloads"
+printf '\e[1;31mSave screenshots to the Downloads\e[0m\n'
 defaults write com.apple.screencapture location -string "${HOME}/Downloads"
 
-echo "# Save screenshots in JPG format (other options: BMP, GIF, JPG, PDF, TIFF)"
+printf '\e[1;31mSave screenshots in JPG format (other options: BMP, GIF, JPG, PDF, TIFF)\e[0m\n'
 defaults write com.apple.screencapture type -string "jpg"
 
-echo "# Disable shadow in screenshots"
+printf '\e[1;31mDisable shadow in screenshots\e[0m\n'
 defaults write com.apple.screencapture disable-shadow -bool true
 
-# echo "# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons"
-# defaults write com.apple.finder QuitMenuItem -bool true
-
-echo "Listar Arquivos sempre em listview"
+printf '\e[1;31mListar Arquivos sempre em listview\e[0m\n'
 sudo defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
-echo "# Finder: disable window animations and Get Info animations"
+printf '\e[1;31mFinder: disable window animations and Get Info animations\e[0m\n'
 defaults write com.apple.finder DisableAllAnimations -bool true
 
-echo "# Show icons for hard drives, servers, and removable media on the desktop"
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+printf '\e[1;31mShow icons for hard drives, servers, and removable media on the desktop\e[0m\n'
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowHardDrivesOnDesktop         -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop     -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop     -bool false
 
-echo "# Display full POSIX path as Finder window title"
+printf '\e[1;31mDisplay full POSIX path as Finder window title\e[0m\n'
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
-echo "# Disable local Time Machine backups"
+printf '\e[1;31mDisable local Time Machine backups\e[0m\n'
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
-echo "# Show the main window when launching Activity Monitor"
-defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
-
-echo "# Visualize CPU usage in the Activity Monitor Dock icon"
-defaults write com.apple.ActivityMonitor IconType -int 5
-
-echo "# Show all processes in Activity Monitor"
-defaults write com.apple.ActivityMonitor ShowCategory -int 0
-
-echo "# Sort Activity Monitor results by CPU usage"
-defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
-defaults write com.apple.ActivityMonitor SortDirection -int 0
-
-# echo "Sincronizar Hora com NTP"
-# sudo ntpdate -u time.apple.com
-
-echo "Acesso Total ao Teclado (Ex:Ativar a tecla Tab, em caixas de diálogo modais)"
+printf '\e[1;31mAcesso Total ao Teclado (Ex:Ativar a tecla Tab, em caixas de diálogo modais)\e[0m\n'
 sudo defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-echo "Habilitar subpixel e renderização de fontes em LCDs não-Apple"
+printf '\e[1;31mHabilitar subpixel e renderização de fontes em LCDs não-Apple\e[0m\n'
 sudo defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
-echo "Habilitar o Dock 2D"
+printf '\e[1;31mHabilitar o Dock 2D\e[0m\n'
 sudo defaults write com.apple.dock no-glass -bool true
 
-echo "Aplicações minizadas/escondidas ficam icones transparentes"
-sudo defaults write com.apple.dock showhidden -bool true
-
-echo "Desativar transparência na barra de menu"
+printf '\e[1;31mDesativar transparência na barra de menu\e[0m\n'
 sudo defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
-echo "Sempre mostrar as barras de rolagem"
+printf '\e[1;31mSempre mostrar as barras de rolagem\e[0m\n'
 sudo defaults write NSGlobalDomain AppleShowScrollBars -string "Auto"
 
-echo "Desativar animações de janelas e pastas"
+printf '\e[1;31mDesativar animações de janelas e pastas\e[0m\n'
 sudo defaults write com.apple.finder DisableAllAnimations -bool true
 
-echo "Mostrar todas as extensções de arquivo no Finder"
+printf '\e[1;31mMostrar todas as extensções de arquivo no Finder\e[0m\n'
 sudo defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-echo "Use o diretório atual como escopo de pesquisa padrão no Finder"
+printf '\e[1;31mUse o diretório atual como escopo de pesquisa padrão no Finder\e[0m\n'
 sudo defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-echo "Mostrar a barra do caminho no Finder"
+printf '\e[1;31mMostrar a barra do caminho no Finder\e[0m\n'
 sudo defaults write com.apple.finder ShowPathbar -bool true
 
-echo "Mostrar barra de status no Finder"
+printf '\e[1;31mMostrar barra de status no Finder\e[0m\n'
 sudo defaults write com.apple.finder ShowStatusBar -bool true
 
-echo "Desativar sombra em screenshots"
-sudo defaults write com.apple.screencapture disable-shadow -bool true
+printf '\e[1;31mMostrar luzes indicadoras para os aplicativos abertos no Dock\e[0m\n'
+sudo defaults write com.apple.dock show-process-indicators -bool false
 
-echo "Mostrar luzes indicadoras para os aplicativos abertos no Dock"
-sudo defaults write com.apple.dock show-process-indicators -bool true
-
-echo "Abrir aplicativos sem animação a partir do Dock"
+printf '\e[1;31mAbrir aplicativos sem animação a partir do Dock\e[0m\n'
 sudo defaults write com.apple.dock launchanim -bool false
 
-echo "Desativar animações ao abrir e fechar janelas"
+printf '\e[1;31mDesativar animações ao abrir e fechar janelas\e[0m\n'
 sudo defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
-echo "Desabilitar a verificação de imagem de disco"
+printf '\e[1;31mDesabilitar a verificação de imagem de disco\e[0m\n'
 sudo defaults write com.apple.frameworks.diskimages skip-verify -bool true
 sudo defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 sudo defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-echo "Automaticamente abrir uma nova janela do Finder quando um volume estão montado"
+printf '\e[1;31mAutomaticamente abrir uma nova janela do Finder quando um volume estão montado\e[0m\n'
 sudo defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 sudo defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 sudo defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
-echo "Evite criar .DS_Store Volumes de rede"
+printf '\e[1;31mEvite criar .DS_Store Volumes de rede\e[0m\n'
 sudo defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-echo "Desativar o aviso quando mudar uma extensão de arquivo"
+printf '\e[1;31mDesativar o aviso quando mudar uma extensão de arquivo\e[0m\n'
 sudo defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 echo "Habilitar snap-to-grid para ícones do desktop"
@@ -204,28 +144,19 @@ sudo defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 echo "Adicionar um item de menu de contexto para mostrar o Web Inspector"
 sudo defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
-echo "Usar apenas UTF-8 no Terminal"
-sudo defaults write com.apple.terminal StringEncodings -array 4
-
 echo "Desative o reabrir as janelas quando o desligar o Mac"
 sudo defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 sudo defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 
-# echo "Habilitar Dashboard -Dev Mode- (permite manter widgets na Ã¡rea de trabalho)"
-# sudo defaults write com.apple.dashboard devmode -bool true
-
 echo "Mostrar a Pasta ~/Library"
 sudo chflags nohidden ~/Library
 
-echo "Desativar backups do Time Machine"
-sudo hash tmutil &> /dev/null && sudo tmutil disablelocal
-
 echo "Mostrar Arquivos Ocultos"
-defaults write com.apple.Finder AppleShowAllFiles YES; 
+defaults write com.apple.Finder AppleShowAllFiles YES;
 killall -HUP Finder;
 
 echo "Escondendo o Icone do Spotlight"
-# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 killall SystemUIServer
 
 echo "Instalando o Oh My zsh"
