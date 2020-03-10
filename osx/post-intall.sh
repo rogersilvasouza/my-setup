@@ -7,10 +7,9 @@
 #
 # 	Original Forked  https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 #
-#   Works in 10.12.3
+#   Works in 10.15.3
 #
 #   Red Bold     : \e[1;31m
-#   Finish Color :
 
 # Enter the OS X administrator password
 printf '\e[1;31mOS X Password (Privileges of Admistrador)\e[0m\n'
@@ -144,16 +143,16 @@ printf '\e[1;31mMostrar Arquivos Ocultos\e[0m\n'
 defaults write com.apple.Finder AppleShowAllFiles YES;
 killall -HUP Finder;
 
-printf '\e[1;31mEscondendo o Icone do Spotlight\e[0m\n'
-sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
-killall SystemUIServer
+# printf '\e[1;31mEscondendo o Icone do Spotlight\e[0m\n'
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# killall SystemUIServer
 
 printf '\e[1;31mReindex Apps\e[0m\n'
 sudo mdutil -E /
 
-printf '\e[1;31mInstalando o Oh My zsh\e[0m\n'
-sudo curl -L http://install.ohmyz.sh | sh
+# printf '\e[1;31mInstalando o Oh My zsh\e[0m\n'
+# sudo curl -L http://install.ohmyz.sh | sh
 
 # Brew version https://brew.sh/
-printf '\e[1;31mInstall Brew (Package Management)\e[0m\n'
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# printf '\e[1;31mInstall Brew (Package Management)\e[0m\n'
+# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
