@@ -7,7 +7,7 @@
 #
 # 	Original Forked  https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 #
-#   Works in 10.15.3
+#   Works in 11.1
 #
 #   Red Bold     : \e[1;31m
 
@@ -156,3 +156,9 @@ sudo mdutil -E /
 # Brew version https://brew.sh/
 # printf '\e[1;31mInstall Brew (Package Management)\e[0m\n'
 # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+printf '\e[1;31mPermitir instalar apps de terceiros\e[0m\n'
+sudo spctl --master-disable
+
+printf '\e[1;31mDesabilitar repetição de teclas\e[0m\n'
+sudo efaults write -g ApplePressAndHoldEnabled -bool false
